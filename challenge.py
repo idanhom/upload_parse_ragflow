@@ -11,9 +11,9 @@ BOOKS = [
     {"title": "Title Six", "author": "Author Two", "category": "Math"},
 ]
 
-@app.get("/author")
+@app.get("/author/{author}")
 async def fetch_book(author: str):
     return [
-        book for book in BOOKS
-        if book["author"].casefold() == author.casefold()
+        book for book in BOOKS if
+        book["author"].casefold() == author.casefold()
     ]
