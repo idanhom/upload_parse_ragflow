@@ -11,12 +11,12 @@ BOOKS = [
     {"title": "Title Six", "author": "Author Two", "category": "Math"},
 ]
 
-@app.get("/books/books-by/{author}")
+@app.get("/books/byauthor/{author}")
 async def fetch_book_by_author(author: str):
     results = [
-        book for book in BOOKS 
-        if book["author"].casefold() == author.casefold()
-        ]
+        book for book in BOOKS if
+        book["author"].casefold() == author.casefold()
+    ]
     if not results:
-        raise HTTPException(status_code=404, detail="author doesn't exist")
+        raise HTTPException(status_code=404, detail="author not found")
     return results
